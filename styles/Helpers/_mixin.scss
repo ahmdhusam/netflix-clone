@@ -1,0 +1,24 @@
+@import "./variables";
+
+@mixin sm() {
+    @media (min-width: map-get($screenWidth,"sm")) {
+        @content;
+    }
+}
+@mixin md() {
+    @media (min-width: map-get($screenWidth,"md")) {
+        @content;
+    }
+}
+
+@mixin lg() {
+    @media (min-width: map-get($screenWidth,"lg")) {
+        @content;
+    }
+}
+
+@mixin xl() {
+    @media (min-width: map-get($screenWidth,"xl")) {
+        @content;
+    }
+} ;

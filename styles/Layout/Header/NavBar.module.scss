@@ -1,0 +1,25 @@
+@import "../../Helpers/variables";
+@import "../../Helpers/mixin";
+
+.mainNav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: 2rem;
+    padding-inline: 1rem;
+    @include sm {
+        padding-inline: 3rem;
+    }
+
+    &__logo {
+        width: 100px;
+    }
+
+    &__button {
+        padding: 0.5rem 1rem;
+        background-color: $mainColor;
+        border-radius: 0.3rem;
+        color: white;
+        cursor: pointer;
+    }
+}

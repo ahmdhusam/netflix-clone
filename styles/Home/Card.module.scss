@@ -1,0 +1,72 @@
+@import "../Helpers/variables";
+@import "../Helpers/mixin";
+
+.card {
+    background-color: black;
+    margin-block: 0.5rem;
+    padding-block: 8rem;
+    color: white;
+    > :first-child {
+        @include md {
+            display: flex;
+            align-items: center;
+            column-gap: 5rem;
+
+            > * {
+                width: 50%;
+            }
+        }
+    }
+
+    &__content {
+        text-align: center;
+
+        @include md {
+            text-align: start;
+        }
+
+        h4 {
+            font-size: 1.5rem;
+            margin-block-end: 2rem;
+        }
+
+        p {
+            line-height: 1.5rem;
+            word-break: break-word;
+        }
+    }
+
+    &__view {
+        &_image {
+            position: relative;
+            z-index: 1;
+
+            @include sm {
+                width: 500px;
+                margin: auto;
+            }
+            @include md {
+                width: unset;
+            }
+        }
+        &_video {
+            position: absolute;
+            top: 21%;
+            z-index: -1;
+            width: 73%;
+            left: 13%;
+
+            video {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.revers {
+    > :first-child {
+        @include md {
+            flex-direction: row-reverse;
+        }
+    }
+}

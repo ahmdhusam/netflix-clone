@@ -1,0 +1,36 @@
+@import "../../Helpers/variables";
+
+.footer {
+    padding-block: 4rem;
+    background-color: black;
+    border-top: 0.5rem solid $borderColor;
+    color: $borderColor;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1rem;
+    &__title {
+        font-size: 1rem;
+        a {
+            font-size: 1.2rem;
+            color: $mainColor;
+        }
+    }
+    &__links {
+        > a {
+            margin-inline: 0.5rem;
+        }
+        &_icon {
+            width: 2rem;
+            height: 2rem;
+        }
+
+        @each $key, $value in $footerHovColor {
+            &_#{$key} {
+                &:hover {
+                    color: $value;
+                }
+            }
+        }
+    }
+}

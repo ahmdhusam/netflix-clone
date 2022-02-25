@@ -1,0 +1,86 @@
+@import "../../Helpers/variables";
+@import "../../Helpers/mixin";
+
+.mainHeader {
+    position: sticky;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    backdrop-filter: blur(0.5rem);
+    background-color: rgba(black, 0.8);
+    color: white;
+
+    &__links {
+        width: 100vw;
+        display: none;
+        padding: 0.5rem;
+        position: absolute;
+        top: 100%;
+        left: 0%;
+        border-radius: 0.1rem;
+        background-color: $borderColor;
+
+        @include md {
+            width: unset;
+            display: block;
+            padding: unset;
+            position: unset;
+            background-color: unset;
+        }
+
+        li {
+            border-bottom: 1px solid white;
+
+            @include md {
+                display: inline-block;
+                margin-inline: 0.5rem;
+                border-bottom: unset;
+            }
+
+            &:hover {
+                opacity: 0.8;
+            }
+
+            a {
+                display: block;
+                padding: 1rem;
+
+                @include md {
+                    padding: unset;
+                }
+            }
+        }
+    }
+
+    &__user {
+        display: flex;
+        align-items: center;
+        column-gap: 0.1rem;
+
+        &_image {
+            border-radius: 0.2rem;
+        }
+    }
+}
+
+.userIcon {
+    min-width: 1.5rem;
+    min-height: 1.5rem;
+}
+
+.listIcon {
+    min-width: 2rem;
+    min-height: 2rem;
+    cursor: pointer;
+
+    @include md {
+        display: none;
+    }
+
+    &:hover + ul {
+        display: block;
+    }
+}

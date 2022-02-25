@@ -1,0 +1,60 @@
+@import "./Helpers/mixin";
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body {
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+        Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+input {
+    border: none;
+
+    &:focus,
+    &:active {
+        outline: none;
+    }
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    width: 100%;
+    // pointer-events: none;
+    object-fit: cover;
+    object-position: center;
+}
+
+ul {
+    list-style-type: none;
+}
+
+button {
+    border: none;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+
+    @include md {
+        width: 90%;
+    }
+
+    @include lg {
+        width: 70%;
+    }
+
+    @include xl {
+        width: 50%;
+    }
+}
