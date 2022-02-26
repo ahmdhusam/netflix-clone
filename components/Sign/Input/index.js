@@ -1,8 +1,11 @@
 import { ErrorMessage, Field } from "formik";
 import React from "react";
 
-import styles from "../../../styles/Sign/Input/Index.module.scss";
+// components
 import Error from "./Error";
+
+// style
+import styles from "../../../styles/Sign/Input/Index.module.scss";
 
 export default function FormikInput(props) {
     const { title, name, ...rest } = props;

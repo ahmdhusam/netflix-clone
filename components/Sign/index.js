@@ -2,58 +2,22 @@ import { Fragment } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
-
 import { Form, Formik } from "formik";
-import * as Yup from "yup";
 
+// components
 import Header from "../layout/Header";
 import FormikInput from "./input";
 
 // styles
 import styles from "../../styles/Sign/Index.module.scss";
 
-// for Formik Component
-const initialValues = (withUserName) => {
-    if (withUserName) {
-        return {
-            username: "",
-            ...initialValues(),
-        };
-    }
-
-    return {
-        email: "",
-        password: "",
-    };
-};
-
-const validetSchemaOptions = (withUserName) => {
-    if (withUserName) {
-        return {
-            username: Yup.string()
-                .min(5, "Too Short!")
-                .max(50, "Too Long!")
-                .required("Required"),
-            ...validetSchemaOptions(),
-        };
-    }
-
-    return {
-        email: Yup.string().email("Invalid email").required("Required"),
-        password: Yup.string()
-            .min(8, "Too Short!")
-            .max(50, "Too Long!")
-            .required("Required"),
-    };
-};
-
-const validetSchema = (withUserName) =>
-    Yup.object(validetSchemaOptions(withUserName));
+// utils
+import { initialValues, validetSchema } from "../../utils/formikSchema";
 
 export default function MainSignForm(props) {
-    const { btnSubValue, redirectTo, msgBeforLink, insertInputName } = props;
-
     const router = useRouter();
+
+    const { btnSubValue, redirectTo, msgBeforLink, insertInputName } = props;
 
     const onSubmit = (values) => {
         router.replace("/home");
@@ -95,7 +59,7 @@ export default function MainSignForm(props) {
                                 />
                                 <FormikInput
                                     placeholder="Enter Your Password"
-                                    type="passowrd"
+                                    type="password"
                                     name="password"
                                     title="Password"
                                 />

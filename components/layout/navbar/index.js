@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+// icons
 import { BsList as ListIcon } from "react-icons/bs";
 import {
     IoIosNotifications as NotificationIcon,
@@ -8,6 +9,7 @@ import {
     IoMdArrowDropdown as ArrowdownIcon,
 } from "react-icons/io";
 
+// style
 import styles from "../../../styles/Layout/NavBar/Index.module.scss";
 
 const linksList = ["Home", "TV Shows", "Movies", "New & Popular", "My List"];
@@ -31,6 +33,7 @@ export default function NavBar() {
                 <nav>
                     <ListIcon className={styles.listIcon} />
                     <ul className={styles.mainHeader__links}>
+                        {/* imported from same file */}
                         {linksList.map((link) => (
                             <Links key={link} link={link} />
                         ))}

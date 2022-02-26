@@ -1,10 +1,12 @@
 import { Fragment } from "react";
 import dynamic from "next/dynamic";
 
+// style
 import styles from "../../styles/Home/Index.module.scss";
 
-const Card = dynamic(() => import("./Card"));
+// components
 const Landing = dynamic(() => import("./Landing"));
+const Card = dynamic(() => import("./Card"));
 const Questions = dynamic(() => import("./Questions"));
 
 const StartHome = ({ sections }) => {

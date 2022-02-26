@@ -1,7 +1,7 @@
-import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+// style
 import styles from "../../../styles/Layout/Header/NavBar.module.scss";
 
 const NavBar = ({ withBtn }) => {

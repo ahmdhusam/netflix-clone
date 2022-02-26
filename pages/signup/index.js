@@ -13,19 +13,21 @@ const SignUpPage = () => {
 
 export default SignUpPage;
 
-export const getServerSideProps = async ({ req, res }) => {
-    const { fakeAuth } = req.cookies;
+// server Auth
 
-    if (fakeAuth) {
-        return {
-            redirect: {
-                destination: "/home",
-                permanent: false,
-            },
-        };
-    }
+// export const getServerSideProps = async ({ req, res }) => {
+//     const { fakeAuth } = req.cookies;
 
-    return {
-        props: {},
-    };
-};
+//     if (fakeAuth) {
+//         return {
+//             redirect: {
+//                 destination: "/home",
+//                 permanent: false,
+//             },
+//         };
+//     }
+
+//     return {
+//         props: {},
+//     };
+// };

@@ -1,6 +1,10 @@
-import Head from "next/head";
 import { Fragment } from "react";
+import Head from "next/head";
+
+// components
 import Footer from "../components/layout/footer";
+
+// style
 import "../styles/globals.scss";
 
 function MyApp({ Component, pageProps }) {

@@ -33,12 +33,21 @@ img {
     object-position: center;
 }
 
+// img {
+//     object-position: center;
+//     mask-image: -webkit-linear-gradient(top, #141414 30%, transparent);
+// }
+
 ul {
     list-style-type: none;
 }
 
 button {
     border: none;
+
+    &:hover {
+        opacity: 0.8;
+    }
 }
 
 .container {

@@ -24,3 +24,7 @@ $footerHovColor: (
     "blue": #0a66c2,
     "white": white,
 );
+
+%MaskImg {
+    mask-image: -webkit-linear-gradient(top, #141414 30%, transparent);
+}

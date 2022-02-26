@@ -1,6 +1,9 @@
 import dynamic from "next/dynamic";
+
+// style
 import styles from "../../../styles/Layout/Header/Index.module.scss";
 
+// components
 const NavBar = dynamic(() => import("./NavBar"));
 
 const Header = ({ children, withBtn }) => {

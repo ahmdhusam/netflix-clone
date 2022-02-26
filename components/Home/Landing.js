@@ -1,7 +1,11 @@
 import React from "react";
-import styles from "../../styles/Home/Landing.module.scss";
-import Form from "./Form";
+
+// components
 import Header from "../layout/Header";
+import Form from "./Form";
+
+// style
+import styles from "../../styles/Home/Landing.module.scss";
 
 const Landing = () => {
     return (
