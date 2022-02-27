@@ -43,10 +43,6 @@ export default function Hero({ banners }) {
         };
     }, [banners, banner, setBanner, randomIndex]);
 
-    if (!!banners.length) {
-        return <div>Out of Data</div>;
-    }
-
     return (
         <header className={styles.hero}>
             <div className={styles.hero_image}>
