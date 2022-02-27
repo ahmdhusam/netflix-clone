@@ -11,6 +11,7 @@ function MyApp({ Component, pageProps }) {
     return (
         <Fragment>
             <Head>
+                <title>NetFlix</title>
                 <meta charSet="UTF-8" />
                 <meta
                     name="viewport"

@@ -31,7 +31,7 @@ export default function Hero({ banners }) {
         [banners]
     );
 
-    // change banner every 10s
+    // change banner every 15s
     useEffect(() => {
         const changebanner = setTimeout(function changeBannerFn() {
             let index = randomIndex(banner.id);
@@ -50,7 +50,7 @@ export default function Hero({ banners }) {
                     src={banner?.poster}
                     alt="spotlight"
                     layout="fill"
-                    // priority={true}
+                    priority={true}
                 />
             </div>
 

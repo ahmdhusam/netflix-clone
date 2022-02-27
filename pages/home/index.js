@@ -1,9 +1,11 @@
+import dynamic from "next/dynamic";
 import axios from "axios";
 
 // components
-import Modal from "../../components/layout/modal";
 import NavBar from "../../components/layout/navbar";
-import Hero from "../../components/HomePage/Hero";
+
+const Modal = dynamic(() => import("../../components/layout/modal"));
+const Hero = dynamic(() => import("../../components/HomePage/Hero"));
 
 // global state proveder
 import { ContextProveder } from "../../context";
@@ -57,6 +59,6 @@ export const getStaticProps = async ({ req, res }) => {
 
     return {
         props: { banners: parsedData },
-        revalidate: 60,
+        revalidate: 1,
     };
 };
