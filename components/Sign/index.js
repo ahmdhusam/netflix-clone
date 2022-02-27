@@ -6,7 +6,7 @@ import { Form, Formik } from "formik";
 
 // components
 import Header from "../layout/Header";
-import FormikInput from "./input";
+import FormikInput from "./Input";
 
 // styles
 import styles from "../../styles/Sign/Index.module.scss";
