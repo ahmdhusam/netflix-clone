@@ -34,16 +34,18 @@ export default function Hero({ banners }) {
     // change banner every 10s
     useEffect(() => {
         const changebanner = setTimeout(function changeBannerFn() {
-            console.log("change");
             let index = randomIndex(banner.id);
             setBanner(banners[index]);
-        }, 10000);
+        }, 15 * 1000);
 
         return () => {
-            console.log("deleted");
             clearTimeout(changebanner);
         };
     }, [banners, banner, setBanner, randomIndex]);
+
+    if (!!banners.length) {
+        return <div>Out of Data</div>;
+    }
 
     return (
         <header className={styles.hero}>
@@ -52,7 +54,7 @@ export default function Hero({ banners }) {
                     src={banner?.poster}
                     alt="spotlight"
                     layout="fill"
-                    priority={true}
+                    // priority={true}
                 />
             </div>
 

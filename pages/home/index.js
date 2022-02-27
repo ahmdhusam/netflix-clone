@@ -34,20 +34,26 @@ export const getStaticProps = async ({ req, res }) => {
     //     };
     // }
 
-    const API_KEY = process.env.API_KEY;
+    let parsedData;
+    try {
+        const API_KEY = process.env.API_KEY;
 
-    const getData = await axios.get(
-        "https://api.themoviedb.org/3/movie/popular",
-        {
-            params: {
-                api_key: API_KEY,
-            },
-        }
-    );
+        const getData = await axios.get(
+            "https://api.themoviedb.org/3/movie/popular",
+            {
+                params: {
+                    api_key: API_KEY,
+                },
+            }
+        );
 
-    const data = getData.data.results.slice(0, 10);
+        const data = getData.data.results.slice(0, 10);
 
-    const parsedData = parseData(data);
+        parsedData = parseData(data);
+    } catch (err) {
+        console.log("Error", err.message);
+        parsedData = [];
+    }
 
     return {
         props: { banners: parsedData },
