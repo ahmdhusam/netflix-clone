@@ -12,8 +12,13 @@ import { ContextProveder } from "../../context";
 
 // utils
 import { parseData } from "../../utils/parseData";
+import { useEffect } from "react";
 
 export default function HomePage({ banners }) {
+    useEffect(() => {
+        console.log(banners);
+        // navigator.serviceWorker.register("/sw.js");
+    }, []);
     return (
         <ContextProveder>
             <Modal />
@@ -49,16 +54,24 @@ export const getStaticProps = async ({ req, res }) => {
             }
         );
 
-        const data = getData.data.results.slice(0, 10);
+        const data = getData.data.results;
 
         parsedData = parseData(data);
     } catch (err) {
         console.log("Error", err.message);
-        parsedData = [];
+        parsedData = [
+            {
+                id: 123,
+                title: "Ahmed",
+                description: "sadjnfsabdfhs",
+                poster: "/imgs/avatar.png",
+                vote: 1.6,
+            },
+        ];
     }
 
     return {
         props: { banners: parsedData },
-        revalidate: 1,
+        revalidate: 60,
     };
 };
