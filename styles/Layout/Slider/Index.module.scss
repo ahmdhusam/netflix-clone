@@ -1,0 +1,13 @@
+@import "../../Helpers/variables";
+@import "../../Helpers/mixin";
+
+.slider {
+    padding-block: 4vh;
+
+    &__title {
+        margin-block-end: 2rem;
+        display: inline-block;
+        font-size: 2rem;
+        color: white;
+    }
+}

@@ -3,27 +3,21 @@ import axios from "axios";
 
 // components
 import NavBar from "../../components/layout/navbar";
-
 const Modal = dynamic(() => import("../../components/layout/modal"));
-const Hero = dynamic(() => import("../../components/HomePage/Hero"));
+const Home = dynamic(() => import("../../components/HomePage"));
 
 // global state proveder
 import { ContextProveder } from "../../context";
 
 // utils
 import { parseData } from "../../utils/parseData";
-import { useEffect } from "react";
 
 export default function HomePage({ banners }) {
-    useEffect(() => {
-        console.log(banners);
-        // navigator.serviceWorker.register("/sw.js");
-    }, []);
     return (
         <ContextProveder>
             <Modal />
             <NavBar />
-            <Hero banners={banners} />
+            <Home banners={banners} />
         </ContextProveder>
     );
 }
@@ -59,15 +53,7 @@ export const getStaticProps = async ({ req, res }) => {
         parsedData = parseData(data);
     } catch (err) {
         console.log("Error", err.message);
-        parsedData = [
-            {
-                id: 123,
-                title: "Ahmed",
-                description: "sadjnfsabdfhs",
-                poster: "/imgs/avatar.png",
-                vote: 1.6,
-            },
-        ];
+        parsedData = [];
     }
 
     return {

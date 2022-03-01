@@ -1,5 +1,6 @@
 // Global Variables
 $mainColor: #e50914;
+$secondColor: #141414;
 $pargraphColor: #8c8c8c;
 
 // Home Variables
@@ -26,5 +27,5 @@ $footerHovColor: (
 );
 
 %MaskImg {
-    mask-image: -webkit-linear-gradient(top, #141414 30%, transparent);
+    mask-image: -webkit-linear-gradient(top, $secondColor 30%, transparent);
 }

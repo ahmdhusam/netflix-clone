@@ -4,6 +4,7 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    text-transform: capitalize;
 }
 
 html,
@@ -29,13 +30,13 @@ a {
 img {
     width: 100%;
     // pointer-events: none;
-    object-fit: cover;
+    // object-fit: cover;
     object-position: center;
 }
 
 // img {
 //     object-position: center;
-//     mask-image: -webkit-linear-gradient(top, #141414 30%, transparent);
+//     mask-image: -webkit-linear-gradient(top, $secondColor 30%, transparent);
 // }
 
 ul {
@@ -65,5 +66,32 @@ button {
 
     @include xl {
         width: 50%;
+    }
+}
+
+.ReactModal__Body--open,
+.ReactModal__Html--open {
+    overflow: hidden;
+}
+
+.ReactModalPortal {
+    position: relative;
+    z-index: 1003;
+}
+
+.bg-sc {
+    background-color: $secondColor;
+}
+
+.mt--17vh {
+    margin-top: -17vh;
+    position: relative;
+}
+
+.pl {
+    padding-inline-start: 0.5rem;
+
+    @include md {
+        padding-inline-start: 3rem;
     }
 }

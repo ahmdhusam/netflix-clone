@@ -1,15 +1,10 @@
 import Image from "next/image";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import ReactModal from "react-modal";
 
 // icons
-import { FaPlay as PlayIcon } from "react-icons/fa";
-import { IoMdAddCircleOutline as AddIcon } from "react-icons/io";
-import {
-    AiFillLike as LikeIcon,
-    AiFillDislike as DislikeIcon,
-    AiOutlineClose as CloseIcon,
-} from "react-icons/ai";
+import { AiOutlineClose as CloseIcon } from "react-icons/ai";
+import { AddIcon, DislikeIcon, LikeIcon, PlayIcon } from "../../../utils/icons";
 
 // global state
 import ctx from "../../../context";
@@ -19,29 +14,21 @@ import styles from "../../../styles/Layout/Modal/Index.module.scss";
 
 ReactModal.setAppElement("#wrapper");
 
+const modalStyle = {
+    content: { background: "#141414", padding: "0%" },
+    overlay: { background: "rgba(0,0,0,0.7)" },
+};
+
 export default function Modal() {
     const {
         modalModify: { modalData, modalIsOpen, setModalIsOpen },
     } = useContext(ctx);
 
-    // disable scroll in background
-    useEffect(() => {
-        const bodyRoot = document.body;
-        if (modalIsOpen) {
-            bodyRoot.style.overflowY = "hidden";
-        } else {
-            bodyRoot.style.overflowY = "scroll";
-        }
-    }, [modalIsOpen]);
-
     return (
         <ReactModal
             isOpen={modalIsOpen}
             onRequestClose={setModalIsOpen.bind(null, false)}
-            style={{
-                content: { background: "#141414", padding: "0%" },
-                overlay: { background: "rgba(0,0,0,0.5)" },
-            }}
+            style={modalStyle}
         >
             <main className={styles.modal}>
                 <header className={styles.modal__header}>
