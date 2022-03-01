@@ -1,12 +1,11 @@
 import React from "react";
 import dynamic from "next/dynamic";
 
-import { Navigation, Scrollbar, Autoplay } from "swiper";
+import { Navigation, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/scrollbar";
 import "swiper/css/pagination";
 
 const Slide = dynamic(() => import("./Slide"));
@@ -35,7 +34,7 @@ export default function Slider({ banners }) {
                     },
                 }}
                 autoplay={{
-                    delay: 500000,
+                    delay: 10 * 1000,
                     disableOnInteraction: false,
                 }}
             >

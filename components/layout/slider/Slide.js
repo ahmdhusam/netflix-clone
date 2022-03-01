@@ -16,7 +16,7 @@ export default function Slide(props) {
         <article className={styles.slide}>
             <div className={styles.slide__image}>
                 <Image
-                    src={props?.poster || "/imgs/avatar.png"}
+                    src={props?.poster}
                     alt={props?.title}
                     layout="fill"
                     priority={false}
