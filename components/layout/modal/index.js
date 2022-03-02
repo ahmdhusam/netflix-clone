@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import ReactModal from "react-modal";
 
 // icons
@@ -8,6 +8,9 @@ import { AddIcon, DislikeIcon, LikeIcon, PlayIcon } from "../../../utils/icons";
 
 // global state
 import ctx from "../../../context";
+
+// hooks
+import useIsMobile from "../../../hooks/useIsMobile";
 
 // style
 import styles from "../../../styles/Layout/Modal/Index.module.scss";
@@ -23,13 +26,7 @@ export default function Modal() {
     const {
         modalModify: { modalData, modalIsOpen, setModalIsOpen },
     } = useContext(ctx);
-    const [isMobile, setIsMobile] = useState(false);
-
-    useEffect(() => {
-        if (innerWidth <= 768) {
-            setIsMobile(true);
-        }
-    }, [setIsMobile]);
+    const { isMobile } = useIsMobile();
 
     return (
         <ReactModal

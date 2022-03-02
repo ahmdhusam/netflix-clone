@@ -8,13 +8,16 @@ import { PlayIcon } from "../../utils/icons";
 // global state
 import ctx from "../../context";
 
+// hooks
+import useIsMobile from "../../hooks/useIsMobile";
+
 // style
 import styles from "../../styles/HomePage/Hero.module.scss";
 
 export default function Hero({ banners }) {
     const [banner, setBanner] = useState(banners[0]);
-    const [isMobile, setIsMobile] = useState(false);
     const { openModal } = useContext(ctx);
+    const { isMobile } = useIsMobile();
 
     const randomIndex = useCallback(
         (bannerId) => {
@@ -43,12 +46,6 @@ export default function Hero({ banners }) {
             clearTimeout(changebanner);
         };
     }, [banners, banner, setBanner, randomIndex]);
-
-    useEffect(() => {
-        if (innerWidth <= 768) {
-            setIsMobile(true);
-        }
-    }, [setIsMobile]);
 
     if (!banners.length) {
         return <div>Sorry Out Of Data</div>;
