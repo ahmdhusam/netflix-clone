@@ -13,13 +13,13 @@ const Slide = dynamic(() => import("./Slide"));
 // style
 import styles from "../../../styles/Layout/Slider/Index.module.scss";
 
-export default function Slider({ banners }) {
+export default function Slider({ title, section }) {
     return (
         <section className={`${styles.slider} pl`}>
-            <strong className={styles.slider__title}>popular</strong>
+            <strong className={styles.slider__title}>{title}</strong>
             <Swiper
                 modules={[Navigation, Autoplay]}
-                spaceBetween={10}
+                spaceBetween={15}
                 slidesPerView={1}
                 speed={500}
                 breakpoints={{
@@ -34,13 +34,13 @@ export default function Slider({ banners }) {
                     },
                 }}
                 autoplay={{
-                    delay: 10 * 1000,
-                    disableOnInteraction: false,
+                    delay: 15 * 1000,
+                    disableOnInteraction: true,
                 }}
             >
-                {banners?.map((banner) => (
-                    <SwiperSlide key={banner.title}>
-                        <Slide {...banner} />
+                {section?.map((slideData) => (
+                    <SwiperSlide key={slideData.title}>
+                        <Slide {...slideData} />
                     </SwiperSlide>
                 ))}
             </Swiper>

@@ -12,9 +12,8 @@ import ctx from "../../context";
 import styles from "../../styles/HomePage/Hero.module.scss";
 
 export default function Hero({ banners }) {
-    const [banner, setBanner] = useState(
-        banners[Math.floor(Math.random() * banners.length)]
-    );
+    const [banner, setBanner] = useState(banners[0]);
+    const [isMobile, setIsMobile] = useState(false);
     const { openModal } = useContext(ctx);
 
     const randomIndex = useCallback(
@@ -33,27 +32,33 @@ export default function Hero({ banners }) {
         [banners]
     );
 
-    // change banner every 15s
+    // change banner every 30s
     useEffect(() => {
         const changebanner = setTimeout(function changeBannerFn() {
             let index = randomIndex(banner.id);
             setBanner(banners[index]);
-        }, 15 * 1000);
+        }, 30 * 1000);
 
         return () => {
             clearTimeout(changebanner);
         };
     }, [banners, banner, setBanner, randomIndex]);
 
+    useEffect(() => {
+        if (innerWidth <= 768) {
+            setIsMobile(true);
+        }
+    }, [setIsMobile]);
+
     if (!banners.length) {
         return <div>Sorry Out Of Data</div>;
     }
 
     return (
-        <header className={`pl ${styles.hero} `}>
+        <header className={`pl ${styles.hero}`}>
             <div className={styles.hero_image}>
                 <Image
-                    src={banner?.poster}
+                    src={isMobile ? banner?.poster : banner?.fullBackdrop}
                     alt="spotlight"
                     layout="fill"
                     priority={true}
@@ -71,7 +76,7 @@ export default function Hero({ banners }) {
                         <PlayIcon /> <span>Play</span>
                     </button>
                     <button onClick={openModal.bind(null, banner)}>
-                        <InfoIcon /> <span> More Info</span>
+                        <InfoIcon /> <span>More Info</span>
                     </button>
                 </div>
             </div>

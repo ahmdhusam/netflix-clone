@@ -1,18 +1,19 @@
 import React, { Fragment } from "react";
 import dynamic from "next/dynamic";
+import sections from "../../utils/Sections";
 
 // components
 const Slider = dynamic(() => import("../layout/slider"));
 
-function dummySections() {
-    return Array.from(new Array(5));
-}
-
-export default function Sections({ banners }) {
+export default function Sections({ sectionsData }) {
     return (
         <Fragment>
-            {dummySections().map((i, index) => (
-                <Slider key={index} banners={banners} />
+            {sectionsData.map((section, index) => (
+                <Slider
+                    key={sections[index].header}
+                    title={sections[index].header}
+                    section={section}
+                />
             ))}
         </Fragment>
     );

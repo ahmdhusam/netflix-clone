@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import ReactModal from "react-modal";
 
 // icons
@@ -23,6 +23,13 @@ export default function Modal() {
     const {
         modalModify: { modalData, modalIsOpen, setModalIsOpen },
     } = useContext(ctx);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        if (innerWidth <= 768) {
+            setIsMobile(true);
+        }
+    }, [setIsMobile]);
 
     return (
         <ReactModal
@@ -33,7 +40,11 @@ export default function Modal() {
             <main className={styles.modal}>
                 <header className={styles.modal__header}>
                     <Image
-                        src={modalData?.poster}
+                        src={
+                            isMobile
+                                ? modalData?.poster
+                                : modalData?.fullBackdrop
+                        }
                         alt="banner"
                         width={300}
                         height={300}

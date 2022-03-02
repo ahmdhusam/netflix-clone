@@ -20,10 +20,10 @@ function MyApp({ Component, pageProps }) {
                 <link rel="icon" href="/imgs/nficon2016.png" />
                 <meta name="description" content="NetFlix Clone By NextJS" />
             </Head>
-            <Fragment>
+            <div>
                 <Component {...pageProps} />
                 <Footer />
-            </Fragment>
+            </div>
         </Fragment>
     );
 }

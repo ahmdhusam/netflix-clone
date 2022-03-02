@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import axios from "axios";
+import TMDB from "../../utils/axios";
 
 // components
 import NavBar from "../../components/layout/navbar";
@@ -11,13 +11,14 @@ import { ContextProveder } from "../../context";
 
 // utils
 import { parseData } from "../../utils/parseData";
+import sections from "../../utils/Sections";
 
-export default function HomePage({ banners }) {
+export default function HomePage(props) {
     return (
         <ContextProveder>
             <Modal />
             <NavBar />
-            <Home banners={banners} />
+            <Home {...props} />
         </ContextProveder>
     );
 }
@@ -35,29 +36,32 @@ export const getStaticProps = async ({ req, res }) => {
     //     };
     // }
 
+    const API_KEY = process.env.API_KEY;
     let parsedData;
     try {
-        const API_KEY = process.env.API_KEY;
-
-        const getData = await axios.get(
-            "https://api.themoviedb.org/3/movie/popular",
-            {
+        let data;
+        const getSections = sections.map(({ get }) =>
+            TMDB().get(get, {
                 params: {
                     api_key: API_KEY,
                 },
-            }
+            })
         );
+        data = await Promise.all(getSections);
 
-        const data = getData.data.results;
-
-        parsedData = parseData(data);
+        parsedData = data.map((data, index) =>
+            parseData(
+                sections[index].top
+                    ? data.data.results.slice(0, 10)
+                    : data.data.results
+            )
+        );
     } catch (err) {
-        console.log("Error", err.message);
-        parsedData = [];
+        console.log(err);
     }
 
     return {
-        props: { banners: parsedData },
+        props: { banners: parsedData[3].slice(0, 5), sectionsData: parsedData },
         revalidate: 60,
     };
 };
