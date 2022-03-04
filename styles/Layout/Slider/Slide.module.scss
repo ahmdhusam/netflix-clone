@@ -57,6 +57,7 @@
 
         > * {
             margin-block: 0.5rem;
+            cursor: auto;
         }
 
         &_icons {
@@ -68,6 +69,8 @@
             &_controls {
                 display: flex;
                 gap: 0.4rem;
+                cursor: pointer;
+
                 svg {
                     width: 1.5rem;
                     height: 1.5rem;
@@ -85,6 +88,8 @@
             }
 
             &_drop {
+                cursor: pointer;
+
                 svg {
                     color: lightgrey;
                     width: 3rem;

@@ -20,33 +20,9 @@ export default function Slider({ title, isNotDefault, sliderData }) {
             <Swiper
                 modules={[Navigation, Autoplay]}
                 spaceBetween={15}
-                slidesPerView={isNotDefault ? 1.5 : 1}
+                slidesPerView={isNotDefault ? 1.75 : 1.25}
                 speed={500}
-                breakpoints={
-                    isNotDefault
-                        ? {
-                              768: {
-                                  slidesPerView: 4,
-                              },
-                              992: {
-                                  slidesPerView: 5,
-                              },
-                              1200: {
-                                  slidesPerView: 5.5,
-                              },
-                          }
-                        : {
-                              768: {
-                                  slidesPerView: 2.5,
-                              },
-                              992: {
-                                  slidesPerView: 3.5,
-                              },
-                              1200: {
-                                  slidesPerView: 4.5,
-                              },
-                          }
-                }
+                breakpoints={handleBreakPoints(isNotDefault)}
                 autoplay={{
                     delay: 15 * 1000,
                     disableOnInteraction: true,
@@ -60,4 +36,32 @@ export default function Slider({ title, isNotDefault, sliderData }) {
             </Swiper>
         </section>
     );
+}
+
+function handleBreakPoints(isNotDefault) {
+    if (isNotDefault) {
+        return {
+            768: {
+                slidesPerView: 3.5,
+            },
+            992: {
+                slidesPerView: 4.5,
+            },
+            1200: {
+                slidesPerView: 5.5,
+            },
+        };
+    }
+
+    return {
+        768: {
+            slidesPerView: 2.5,
+        },
+        992: {
+            slidesPerView: 3.5,
+        },
+        1200: {
+            slidesPerView: 4.5,
+        },
+    };
 }
