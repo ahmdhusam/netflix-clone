@@ -39,8 +39,8 @@ export default function Modal() {
                     <Image
                         src={
                             isMobile
-                                ? modalData?.poster
-                                : modalData?.fullBackdrop
+                                ? modalData.fullPoster
+                                : modalData.fullBackdrop
                         }
                         alt="banner"
                         width={300}

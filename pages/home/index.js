@@ -10,8 +10,8 @@ const Home = dynamic(() => import("../../components/HomePage"));
 import { ContextProveder } from "../../context";
 
 // utils
-import { parseData } from "../../utils/parseData";
-import sections from "../../utils/Sections";
+import sectionsList from "../../utils/sectionsList";
+import { parseSlide } from "../../utils/parseSlide";
 
 export default function HomePage(props) {
     return (
@@ -39,29 +39,27 @@ export const getStaticProps = async ({ req, res }) => {
     const API_KEY = process.env.API_KEY;
     let parsedData;
     try {
-        let data;
-        const getSections = sections.map(({ get }) =>
-            TMDB().get(get, {
+        const getSectionsList = sectionsList.map(({ path }) =>
+            TMDB().get(path, {
                 params: {
                     api_key: API_KEY,
                 },
             })
         );
-        data = await Promise.all(getSections);
+        const resArr = await Promise.all(getSectionsList);
 
-        parsedData = data.map((data, index) =>
-            parseData(
-                sections[index].top
-                    ? data.data.results.slice(0, 10)
-                    : data.data.results
-            )
+        parsedData = resArr.map((res, index) =>
+            parseSlide(res.data.results, index)
         );
     } catch (err) {
         console.log(err);
     }
 
     return {
-        props: { banners: parsedData[3].slice(0, 5), sectionsData: parsedData },
+        props: {
+            banners: parsedData[3].sliderData.slice(0, 5),
+            sectionsData: parsedData,
+        },
         revalidate: 60,
     };
 };

@@ -55,7 +55,7 @@ export default function Hero({ banners }) {
         <header className={`pl ${styles.hero}`}>
             <div className={styles.hero_image}>
                 <Image
-                    src={isMobile ? banner?.poster : banner?.fullBackdrop}
+                    src={isMobile ? banner.fullPoster : banner.fullBackdrop}
                     alt="spotlight"
                     layout="fill"
                     priority={true}

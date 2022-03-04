@@ -6,9 +6,13 @@
     position: relative;
     overflow: hidden;
     border-radius: 0.5rem;
-    cursor: pointer;
     text-align: start;
     color: white;
+    cursor: grab;
+
+    &.isNotDefault {
+        height: 45vh;
+    }
 
     @include md {
         height: 25vh;
@@ -16,6 +20,10 @@
 
     @include lg {
         height: 18vh;
+    }
+
+    &:active {
+        cursor: grabbing;
     }
 
     &:hover {

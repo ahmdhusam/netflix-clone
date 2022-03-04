@@ -12,12 +12,16 @@ import styles from "../../../styles/Layout/Slider/Slide.module.scss";
 
 export default function Slide(props) {
     const { openModal } = useContext(ctx);
+    const { isNotDefault } = props;
+
+    const slideStyle = `${styles.slide} ${isNotDefault && styles.isNotDefault}`;
+
     return (
-        <article className={styles.slide}>
+        <article className={slideStyle}>
             <div className={styles.slide__image}>
                 <Image
-                    src={props?.backdrop}
-                    alt={props?.title}
+                    src={isNotDefault ? props.poster : props.backdrop}
+                    alt={props.title}
                     layout="fill"
                     priority={false}
                 />
