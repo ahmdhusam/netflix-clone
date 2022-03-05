@@ -24,6 +24,7 @@ const sectionsList = [
         title: "Top 10 in US Today",
         path: "/trending/tv/day?watch_region=US",
         topTen: true,
+        isNotDefault: true,
     },
     {
         title: "Action",

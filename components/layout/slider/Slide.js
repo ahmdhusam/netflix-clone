@@ -14,10 +14,8 @@ export default function Slide(props) {
     const { openModal } = useContext(ctx);
     const { isNotDefault } = props;
 
-    const slideStyle = `${styles.slide} ${isNotDefault && styles.isNotDefault}`;
-
     return (
-        <article className={slideStyle}>
+        <article className={styles.slide}>
             <div className={styles.slide__image}>
                 <Image
                     src={isNotDefault ? props.poster : props.backdrop}

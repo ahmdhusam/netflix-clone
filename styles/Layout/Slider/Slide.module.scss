@@ -2,29 +2,7 @@
 @import "../../Helpers/mixin";
 
 .slide {
-    height: 30vh;
-    position: relative;
-    overflow: hidden;
-    border-radius: 0.5rem;
-    text-align: start;
-    color: white;
-    cursor: grab;
-
-    &.isNotDefault {
-        height: 45vh;
-    }
-
-    @include md {
-        height: 25vh;
-    }
-
-    @include lg {
-        height: 18vh;
-    }
-
-    &:active {
-        cursor: grabbing;
-    }
+    height: 100%;
 
     &:hover {
         .slide__image {

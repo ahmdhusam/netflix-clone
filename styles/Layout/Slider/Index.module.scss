@@ -10,4 +10,35 @@
         font-size: 2rem;
         color: white;
     }
+
+    &__swiper {
+        height: 30vh;
+
+        @include md {
+            height: 25vh;
+        }
+
+        @include lg {
+            height: 20vh;
+        }
+
+        &.isNotDefault {
+            height: 40vh;
+        }
+
+        &_swiperSlide {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            text-align: start;
+            color: white;
+            cursor: grab;
+
+            > article {
+                &:active {
+                    cursor: grabbing;
+                }
+            }
+        }
+    }
 }
