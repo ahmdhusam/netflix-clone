@@ -1,16 +1,7 @@
-import { Fragment } from "react";
-
 export const questionsList = () => [
     {
         title: "What is Netflix?",
-        answer: [
-            "Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.",
-            <>
-                <br />
-                <br />
-            </>,
-            "You can watch as much as you want, whenever you want without a single commercial – all for one low monthly price. There's always something new to discover and new TV shows and movies are added every week!",
-        ].map((item) => <Fragment key={item}>{item}</Fragment>),
+        answer: "Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices. <br /> <br /> You can watch as much as you want, whenever you want without a single commercial – all for one low monthly price. There's always something new to discover and new TV shows and movies are added every week!",
     },
     {
         title: "How much does Netflix cost?",
@@ -18,14 +9,7 @@ export const questionsList = () => [
     },
     {
         title: "Where can I watch?",
-        answer: [
-            "Watch anywhere, anytime. Sign in with your Netflix account to watch instantly on the web at netflix.com from your personal computer or on any internet-connected device that offers the Netflix app, including smart TVs, smartphones, tablets, streaming media players and game consoles.",
-            <>
-                <br />
-                <br />
-            </>,
-            "You can also download your favorite shows with the iOS, Android, or Windows 10 app. Use downloads to watch while you're on the go and without an internet connection. Take Netflix with you anywhere.",
-        ].map((item) => <Fragment key={item}>{item}</Fragment>),
+        answer: "Watch anywhere, anytime. Sign in with your Netflix account to watch instantly on the web at netflix.com from your personal computer or on any internet-connected device that offers the Netflix app, including smart TVs, smartphones, tablets, streaming media players and game consoles. <br /> <br /> You can also download your favorite shows with the iOS, Android, or Windows 10 app. Use downloads to watch while you're on the go and without an internet connection. Take Netflix with you anywhere.",
     },
     {
         title: "How do I cancel?",
@@ -37,13 +21,6 @@ export const questionsList = () => [
     },
     {
         title: "Is Netflix good for kids?",
-        answer: [
-            "The Netflix Kids experience is included in your membership to give parents control while kids enjoy family-friendly TV shows and movies in their own space.",
-            <>
-                <br />
-                <br />
-            </>,
-            "Kids profiles come with PIN-protected parental controls that let you restrict the maturity rating of content kids can watch and block specific titles you don’t want kids to see.",
-        ].map((item) => <Fragment key={item}>{item}</Fragment>),
+        answer: "The Netflix Kids experience is included in your membership to give parents control while kids enjoy family-friendly TV shows and movies in their own space. <br /> <br /> Kids profiles come with PIN-protected parental controls that let you restrict the maturity rating of content kids can watch and block specific titles you don’t want kids to see.",
     },
 ];

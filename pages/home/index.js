@@ -52,7 +52,10 @@ export const getStaticProps = async ({ req, res }) => {
             parseSlide(res.data.results, index)
         );
     } catch (err) {
-        console.log(err);
+        console.log(err.message);
+        return {
+            notFound: true
+        }
     }
 
     return {

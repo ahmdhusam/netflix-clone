@@ -50,7 +50,7 @@ function Question({ title, answer }) {
             </header>
             {isOpen && (
                 <main>
-                    <p>{answer}</p>
+                    <p dangerouslySetInnerHTML={{ __html: answer }} />
                 </main>
             )}
         </article>

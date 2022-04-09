@@ -24,7 +24,6 @@ export default function Slide(props) {
                     priority={false}
                 />
             </div>
-
             <div className={styles.slide__content}>
                 <div className={styles.slide__content_icons}>
                     <div className={styles.slide__content_icons_controls}>
@@ -44,7 +43,7 @@ export default function Slide(props) {
                 <div className={styles.slide__content_vote}>
                     {props?.vote}% Match
                 </div>
-                <div className={styles.slide__content_genre}>drama</div>
+                <div className={styles.slide__content_genre}>{props.genres}</div>
             </div>
         </article>
     );
